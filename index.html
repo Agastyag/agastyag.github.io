@@ -5,12 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agastya Gupta</title>
 <meta name="description" content="Principal at Nyca Partners. Former engineer investing at the intersection of AI and regulated industry. Prev Goldman Sachs, CS Dartmouth.">
-<link rel="canonical" href="https://agastyag.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Agastya Gupta">
 <meta property="og:description" content="Principal at Nyca Partners. Former engineer investing at the intersection of AI and regulated industry.">
-<meta property="og:url" content="https://agastyag.github.io/">
-<meta property="og:image" content="https://agastyag.github.io/assets/agastya.jpg">
+<meta property="og:image" content="assets/agastya.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@gupta_agastya">
 <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
@@ -27,7 +25,6 @@
     --muted: #6f6d68;
     --faint: #a3a19b;
     --rule: #e5e2da;
-    --hover: #f1efe9;
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark) {
@@ -37,7 +34,6 @@
       --muted: #8f8e88;
       --faint: #5e5d58;
       --rule: #262522;
-      --hover: #191816;
     }
   }
   * { box-sizing: border-box; }
@@ -55,142 +51,156 @@
   }
   a { color: inherit; text-decoration: none; }
   a:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; border-radius: 2px; }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
-  main { padding: clamp(56px, 10vh, 112px) 0 40px; }
+  .u { border-bottom: 1px solid var(--rule); transition: border-color .15s; }
+  .u:hover { border-color: var(--text); }
 
-  /* Identity */
-  .id { display: flex; align-items: center; gap: 18px; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding-left: clamp(24px, 5vw, 56px); padding-right: clamp(24px, 5vw, 56px); }
+  main { padding-top: clamp(88px, 16vh, 168px); }
+
+  /* Two-column editorial grid: labels left, content right */
+  .row {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 0 clamp(40px, 6vw, 80px);
+    align-items: start;
+  }
+  .row + .row { margin-top: clamp(72px, 10vh, 112px); }
+
+  /* Identity (left) */
   .avatar {
-    width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: none;
+    width: 72px; height: 72px; border-radius: 50%; object-fit: cover; display: block;
     box-shadow: 0 0 0 1px var(--rule);
   }
-  .name { font-size: 17px; font-weight: 500; margin: 0; letter-spacing: -0.005em; }
+  .name { font-size: 17px; font-weight: 500; margin: 18px 0 0; letter-spacing: -0.005em; }
   .kicker { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
-  .kicker a { border-bottom: 1px solid var(--rule); transition: border-color .15s; }
-  .kicker a:hover { border-color: var(--text); }
 
-  /* Headline */
+  /* Statement (right) */
   .headline {
     font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
     font-weight: 400;
-    font-size: clamp(36px, 6.2vw, 52px);
-    line-height: 1.08;
-    letter-spacing: -0.012em;
-    margin: 44px 0 0;
+    font-size: clamp(38px, 5.2vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.014em;
+    margin: -6px 0 0;
+    max-width: 17ch;
     text-wrap: balance;
   }
   .headline em { font-style: italic; }
-  .lede { margin: 22px 0 0; color: var(--muted); font-size: 17px; max-width: 34em; }
-  .lede a { color: var(--text); border-bottom: 1px solid var(--rule); transition: border-color .15s; }
-  .lede a:hover { border-color: var(--text); }
-
-  /* Links */
-  .links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 30px 0 0; padding: 0; list-style: none; font-size: 15px; }
-  .links a { display: inline-flex; align-items: center; gap: 6px; color: var(--text); }
+  .lede { margin: 26px 0 0; color: var(--muted); font-size: 17px; max-width: 40em; }
+  .lede a { color: var(--text); }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 34px 0 0; padding: 0; list-style: none; font-size: 15px; }
+  .links a { display: inline-flex; align-items: center; gap: 6px; }
   .links a::after { content: "↗"; color: var(--faint); font-size: 13px; transition: transform .15s, color .15s; }
   .links a:hover::after { color: var(--text); transform: translate(1px, -1px); }
 
-  /* Section */
-  section { margin-top: 84px; }
-  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
-  .sec-head h2 { font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; margin: 0; }
-  .sec-head p { margin: 0; color: var(--muted); font-size: 14px; }
+  /* Section label (left) */
+  .label h2 { font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; margin: 0; }
+  .label p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+  .label { padding-top: 26px; border-top: 1px solid var(--rule); }
 
-  /* Deals */
-  .deals { list-style: none; margin: 0; padding: 0; }
-  .deal {
+  /* Lists (right) */
+  .list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .item {
     display: grid;
-    grid-template-columns: 132px 1fr auto;
-    gap: 6px 24px;
+    grid-template-columns: 120px minmax(0, 1fr) auto;
+    gap: 6px 28px;
     align-items: start;
     padding: 26px 0;
     border-bottom: 1px solid var(--rule);
   }
-  .logo { height: 22px; display: flex; align-items: center; color: var(--text); margin-top: 1px; }
+  .item.proj { grid-template-columns: minmax(0, 1fr) auto; }
+  .logo { height: 22px; display: flex; align-items: center; color: var(--text); margin-top: 2px; }
   .logo svg { height: 22px; width: auto; display: block; }
   .logo img { height: 22px; width: auto; display: block; filter: brightness(0); }
   @media (prefers-color-scheme: dark) { .logo img { filter: brightness(0) invert(1); } }
-  .logo a { display: block; }
-  .logo a:hover { opacity: .65; }
+  .logo a { display: block; transition: opacity .15s; }
+  .logo a:hover { opacity: .6; }
   .stealth {
     display: inline-flex; align-items: center; height: 22px; padding: 0 8px;
     border: 1px dashed var(--faint); border-radius: 5px;
-    font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
-    font-weight: 500;
+    font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 500;
   }
   .co { margin: 0; font-size: 16px; font-weight: 500; line-height: 1.4; }
   .co a { border-bottom: 1px solid transparent; transition: border-color .15s; }
   .co a:hover { border-color: var(--text); }
-  .desc { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
-  .round { grid-column: 3; text-align: right; color: var(--muted); font-size: 14px; white-space: nowrap; line-height: 1.4; margin-top: 1px; }
-  .round span { display: block; color: var(--faint); font-size: 13px; }
-  .press { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; font-size: 13.5px; }
+  .desc { margin: 2px 0 0; color: var(--muted); font-size: 15px; max-width: 44em; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; color: var(--text); }
+  .meta { text-align: right; color: var(--muted); font-size: 14px; white-space: nowrap; line-height: 1.4; margin: 2px 0 0; }
+  .meta span { display: block; color: var(--faint); font-size: 13px; }
+  .press { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-size: 13.5px; }
+  .proj .press { grid-column: 1; }
   .press a { color: var(--muted); display: inline-flex; align-items: center; gap: 4px; transition: color .15s; }
   .press a::after { content: "↗"; font-size: 11px; color: var(--faint); }
   .press a:hover { color: var(--text); }
 
-  @media (max-width: 560px) {
-    .deal { grid-template-columns: 1fr; gap: 6px 0; padding: 22px 0; }
+  footer { margin-top: clamp(72px, 10vh, 112px); padding: 22px 0 56px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 13.5px; flex-wrap: wrap; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 760px) {
+    main { padding-top: clamp(64px, 12vh, 112px); }
+    .row { grid-template-columns: 1fr; gap: 0; }
+    .row + .row { margin-top: 72px; }
+    .avatar { width: 64px; height: 64px; }
+    .name { margin-top: 14px; }
+    .headline { margin-top: 34px; max-width: none; }
+    .label { border-top: 0; padding-top: 0; padding-bottom: 14px; }
+    .label p { display: inline; margin-left: 10px; }
+    .item { grid-template-columns: 1fr; gap: 6px 0; padding: 22px 0; }
     .logo { margin-bottom: 6px; }
-    .round { grid-column: 1; text-align: left; margin-top: 2px; }
-    .round span { display: inline; }
-    .round span::before { content: " · "; }
-    .press { grid-column: 1; }
+    .meta { text-align: left; margin-top: 2px; }
+    .meta span { display: inline; }
+    .meta span::before { content: " · "; }
+    .press, .proj .press { grid-column: 1; }
   }
-
-  footer { margin-top: 84px; padding: 22px 0 48px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 13.5px; flex-wrap: wrap; }
-  footer a { color: var(--muted); border-bottom: 1px solid var(--rule); transition: color .15s, border-color .15s; }
-  footer a:hover { color: var(--text); border-color: var(--text); }
-
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
 <main class="wrap">
 
-  <header class="id">
-    <img class="avatar" src="assets/agastya.jpg" alt="Agastya Gupta" width="56" height="56">
-    <div>
+  <div class="row">
+    <header>
+      <img class="avatar" src="assets/agastya.jpg" alt="Agastya Gupta" width="72" height="72">
       <h1 class="name">Agastya Gupta</h1>
-      <p class="kicker">Principal, <a href="https://www.nyca.com" target="_blank" rel="noopener">Nyca Partners</a></p>
+      <p class="kicker">Principal, <a class="u" href="https://www.nyca.com" target="_blank" rel="noopener">Nyca Partners</a></p>
+    </header>
+    <div>
+      <h2 class="headline">Former engineer investing at the intersection of <em>AI</em> and <em>regulated industry</em>.</h2>
+      <p class="lede">Previously <a class="u" href="https://www.goldmansachs.com/what-we-do/asset-management/growth-equity" target="_blank" rel="noopener">Goldman Sachs</a> Growth Equity. Computer science at <a class="u" href="https://home.dartmouth.edu" target="_blank" rel="noopener">Dartmouth</a>.</p>
+      <ul class="links">
+        <li><a href="https://x.com/gupta_agastya" target="_blank" rel="noopener me">X</a></li>
+        <li><a href="https://www.linkedin.com/in/agastyagupta/" target="_blank" rel="noopener me">LinkedIn</a></li>
+        <li><a href="https://github.com/Agastyag" target="_blank" rel="noopener me">GitHub</a></li>
+      </ul>
     </div>
-  </header>
+  </div>
 
-  <h2 class="headline">Former engineer investing at the intersection of <em>AI</em> and <em>regulated industry</em>.</h2>
-  <p class="lede">Previously <a href="https://www.goldmansachs.com/what-we-do/asset-management/growth-equity" target="_blank" rel="noopener">Goldman Sachs</a> Growth Equity. Computer science at <a href="https://home.dartmouth.edu" target="_blank" rel="noopener">Dartmouth</a>.</p>
-
-  <ul class="links">
-    <li><a href="https://x.com/gupta_agastya" target="_blank" rel="noopener me">X</a></li>
-    <li><a href="https://www.linkedin.com/in/agastyagupta/" target="_blank" rel="noopener me">LinkedIn</a></li>
-    <li><a href="https://github.com/Agastyag" target="_blank" rel="noopener me">GitHub</a></li>
-  </ul>
-
-  <section aria-labelledby="deals-h">
-    <div class="sec-head">
-      <h2 id="deals-h">Investments</h2>
+  <section class="row" aria-labelledby="inv-h">
+    <div class="label">
+      <h2 id="inv-h">Investments</h2>
       <p>Sourced and led at Nyca</p>
     </div>
-    <ul class="deals">
+    <ul class="list">
 
-      <li class="deal">
+      <li class="item">
         <div class="logo"><a href="https://astrafi.com" target="_blank" rel="noopener" aria-label="Astra"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 40" fill="none" role="img" aria-label="Astra"><g clip-path="url(#clip0_1705_36503)"><path d="M52.6402 13.8579H54.7403L60.6284 27.612H57.8512L56.5754 24.4642H50.6579L49.4312 27.6169H46.7324L52.6402 13.8579ZM55.7413 22.3657L53.6265 16.7731L51.5214 22.3657H55.7413Z" fill="currentColor"></path><path d="M72.7772 16.7582C72.5236 16.3859 72.1645 16.0996 71.7468 15.9367C71.3128 15.7624 70.8498 15.6733 70.3827 15.6744C70.1082 15.6744 69.8348 15.7076 69.5682 15.7733C69.3144 15.8381 69.0726 15.9433 68.8518 16.0851C68.6475 16.2307 68.4795 16.4222 68.3611 16.6444C68.2239 16.89 68.1576 17.1695 68.1697 17.4511C68.16 17.656 68.1995 17.8603 68.285 18.0464C68.3704 18.2326 68.4992 18.3951 68.6604 18.5202C69.0287 18.7871 69.4316 19.0019 69.8577 19.1586C70.3483 19.3368 70.839 19.51 71.4229 19.6536C71.9717 19.8146 72.4965 20.0493 72.9833 20.3514C73.4627 20.6534 73.8713 21.0571 74.1805 21.5343C74.5374 22.1295 74.7084 22.8194 74.6712 23.514C74.6888 24.183 74.5528 24.847 74.2738 25.4541C74.0163 25.9872 73.6442 26.4555 73.1845 26.8251C72.7116 27.1991 72.1719 27.478 71.5947 27.6466C70.9762 27.8287 70.3351 27.9204 69.6908 27.9189C68.8549 27.9255 68.0243 27.7831 67.2374 27.4982C66.4466 27.2117 65.7466 26.7159 65.2109 26.0629L67.0363 24.2712C67.3264 24.723 67.7291 25.0899 68.2041 25.3353C68.6765 25.5842 69.202 25.7133 69.735 25.7115C70.0217 25.7063 70.3067 25.6665 70.5839 25.5927C70.8575 25.5173 71.1175 25.3987 71.3542 25.2413C71.5826 25.0861 71.7737 24.8816 71.9136 24.6424C72.0583 24.3919 72.1314 24.1058 72.1246 23.8159C72.137 23.597 72.0992 23.3782 72.0141 23.1765C71.929 22.9748 71.7989 22.7956 71.6339 22.6528C71.2748 22.359 70.8704 22.1266 70.4367 21.9649C69.946 21.7768 69.4553 21.6036 68.8763 21.4353C68.3269 21.2762 67.8006 21.0449 67.311 20.7474C66.8324 20.4527 66.4237 20.0557 66.1138 19.5843C65.7608 18.9874 65.5901 18.2988 65.6231 17.6046C65.6057 16.9618 65.7545 16.3256 66.0549 15.7585C66.3346 15.2482 66.7214 14.8056 67.1884 14.4618C67.6745 14.109 68.2197 13.8475 68.7978 13.6897C69.4005 13.5221 70.0225 13.4356 70.6477 13.4323C71.357 13.4312 72.0622 13.5414 72.738 13.759C73.4126 13.9853 74.0304 14.3569 74.5486 14.8478L72.7772 16.7582Z" fill="currentColor"></path><path d="M83.8173 15.996H79.6318V13.7887L90.4268 13.7639V15.9812H86.2462V27.5278H83.8173V15.996Z" fill="currentColor"></path><path d="M95.7315 13.754H100.471C101.109 13.7523 101.744 13.812 102.37 13.9322C102.954 14.036 103.514 14.2456 104.024 14.5508C104.5 14.846 104.892 15.2603 105.162 15.7535C105.467 16.3475 105.616 17.0104 105.594 17.6788C105.626 18.5861 105.337 19.4752 104.78 20.1881C104.188 20.8897 103.348 21.3317 102.439 21.4204L106.075 27.4981H103.131L99.9464 21.6778H98.1751V27.508H95.7217L95.7315 13.754ZM100.059 19.5793C100.408 19.5793 100.751 19.5793 101.1 19.5249C101.437 19.5016 101.768 19.4231 102.081 19.2922C102.363 19.1721 102.606 18.975 102.783 18.7231C102.977 18.4059 103.069 18.0361 103.048 17.6639C103.067 17.3158 102.98 16.97 102.797 16.6741C102.633 16.4321 102.405 16.2403 102.14 16.1198C101.854 15.9943 101.551 15.9142 101.242 15.8822C100.926 15.8434 100.608 15.8236 100.29 15.8228H98.1849V19.5545L100.059 19.5793Z" fill="currentColor"></path><path d="M116.629 13.7095H118.744L124.632 27.4586H121.855L120.575 24.3108H114.657L113.43 27.4586H110.717L116.629 13.7095ZM119.726 22.2173L117.611 16.6197L115.481 22.2272L119.726 22.2173Z" fill="currentColor"></path><path d="M40.1326 25.5531L27.5271 19.614L36.8009 8.1168L23.3367 14.5509L20.0393 0L16.791 14.5608L3.26301 8.19104L12.5859 19.6486L0 25.6422L14.2297 25.954L11.1335 39.9604L20.0639 28.879L20.844 29.8243L29.1414 40L25.9422 25.9292L40.1326 25.5531ZM9.10209 12.7642L17.9343 16.9265L20.0442 7.45855L21.8058 15.2536L14.1021 18.9211L9.10209 12.7642ZM6.98236 24.1475L27.6301 14.3083L14.9657 24.3207L6.98236 24.1475ZM14.2297 33.4769L15.9716 25.6224L28.6409 15.61L14.2297 33.4769ZM26.006 33.5412L21.8597 28.4781L21.0992 27.5724L26.4574 20.9354L27.5467 21.4303L33.1453 24.0633L23.8961 24.3108L26.006 33.5412Z" fill="currentColor"></path><g opacity="0.5"><path d="M20.0537 28.879L20.8339 29.8243L20.9075 29.9134L21.9674 28.6068L21.8594 28.4781L21.1087 27.5724" fill="currentColor"></path><path d="M23.8955 24.3306L24.2292 25.8005L25.451 24.291L23.8955 24.3306Z" fill="currentColor"></path><path d="M26.457 20.9354L27.5463 21.4501L27.6886 21.5145L28.7534 20.193L27.5218 19.614" fill="currentColor"></path></g></g><defs><clipPath id="clip0_1705_36503"><rect width="124.865" height="40" fill="white"></rect></clipPath></defs></svg></a></div>
         <div>
           <p class="co"><a href="https://astrafi.com" target="_blank" rel="noopener">Astra</a></p>
           <p class="desc">Turnkey instant payments for the enterprise.</p>
         </div>
-        <p class="round">$10M Series A ext.<span>2026</span></p>
+        <p class="meta">$10M Series A ext.<span>2026</span></p>
         <div class="press">
           <a href="https://astrafi.com/blog/astra-raises-10m-from-nyca-partners/" target="_blank" rel="noopener">Announcement</a>
         </div>
       </li>
 
-      <li class="deal">
+      <li class="item">
         <div class="logo"><a href="https://www.circuitsecurity.com" target="_blank" rel="noopener" aria-label="Circuit"><img src="assets/circuit.png" alt="Circuit" width="800" height="200"></a></div>
         <div>
           <p class="co"><a href="https://www.circuitsecurity.com" target="_blank" rel="noopener">Circuit</a></p>
           <p class="desc">Trustless backup and recovery for digital assets.</p>
         </div>
-        <p class="round">$4.5M Seed<span>2025</span></p>
+        <p class="meta">$4.5M Seed<span>2025</span></p>
         <div class="press">
           <a href="https://www.forbes.com/sites/digital-assets/2026/01/14/crypto-lost-67-billion-to-hacks-can-it-finally-become-insurable/" target="_blank" rel="noopener">Forbes</a>
           <a href="https://www.alleywatch.com/2025/07/circuit-digital-asset-recovery-lost-private-key-security-automatic-asset-extraction-harry-donnelly/" target="_blank" rel="noopener">AlleyWatch</a>
@@ -198,13 +208,13 @@
         </div>
       </li>
 
-      <li class="deal">
+      <li class="item">
         <div class="logo"><a href="https://www.findigs.com" target="_blank" rel="noopener" aria-label="Findigs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 40" role="img" aria-label="Findigs"><g fill="currentColor"><path d="M122.2 27.5457L118.447 29.5864C118.912 30.7915 119.826 31.7286 121.187 32.3988C122.55 33.0678 124.215 33.4029 126.187 33.4029C128.534 33.4029 130.344 32.9284 131.619 31.9805C132.891 31.0326 133.528 29.6891 133.528 27.9478C133.528 26.4541 133.008 25.2997 131.966 24.4848C130.925 23.6698 129.309 23.1629 127.118 22.9619C125.523 22.8062 124.433 22.6052 123.846 22.3598C123.259 22.1145 122.966 21.7351 122.966 21.2206C122.966 20.7061 123.192 20.33 123.646 20.0836C124.101 19.8382 124.816 19.715 125.79 19.715C126.652 19.715 127.388 19.9106 127.998 20.3008C128.607 20.691 129.022 21.2325 129.244 21.9232L133.295 20.5851C132.852 19.2243 131.951 18.1543 130.59 17.3728C129.227 16.5935 127.605 16.2012 125.723 16.2012C123.487 16.2012 121.72 16.6876 120.426 17.6582C119.131 18.6288 118.483 19.9398 118.483 21.5892C118.483 23.1067 119.042 24.2783 120.161 25.103C121.278 25.9288 122.978 26.4314 125.259 26.6087C126.277 26.6984 127.053 26.8043 127.584 26.9264C128.116 27.0496 128.491 27.2172 128.712 27.4279C128.933 27.6409 129.045 27.9359 129.045 28.3153C129.045 29.3648 128.116 29.889 126.255 29.889C125.192 29.889 124.318 29.688 123.631 29.2859C122.944 28.8849 122.468 28.3056 122.202 27.5468"></path><path d="M112.635 16.5362L112.302 18.6785H112.201C111.094 17.0269 109.423 16.2012 107.187 16.2012C105.659 16.2012 104.307 16.5589 103.134 17.2723C101.96 17.9867 101.052 18.9908 100.41 20.2835C99.7671 21.5784 99.4463 23.084 99.4463 24.8015C99.4463 26.5189 99.7671 28.0256 100.41 29.3194C101.052 30.6143 101.96 31.6173 103.134 32.3307C104.306 33.0451 105.658 33.4018 107.187 33.4018C108.227 33.4018 109.163 33.1834 109.993 32.7479C110.824 32.3134 111.526 31.6724 112.103 30.824H112.201V32.5306C112.201 33.712 111.814 34.6502 111.038 35.3408C110.264 36.0326 109.202 36.3784 107.851 36.3784C105.636 36.3784 104.152 35.6305 103.399 34.1357L99.9441 36.5795C100.652 37.7392 101.649 38.5974 102.933 39.1551C104.218 39.7128 105.834 39.9917 107.782 39.9917C110.55 39.9917 112.714 39.3443 114.276 38.0516C115.838 36.7567 116.618 34.9604 116.618 32.6636V16.5341H112.633L112.635 16.5362ZM111.057 28.4655C110.337 29.3475 109.336 29.7874 108.05 29.7874C106.833 29.7874 105.869 29.341 105.161 28.4493C104.452 27.5566 104.098 26.3417 104.098 24.8026C104.098 23.2634 104.452 22.0475 105.161 21.1558C105.869 20.263 106.833 19.8177 108.05 19.8177C109.336 19.8177 110.337 20.2587 111.057 21.1396C111.776 22.0215 112.137 23.2418 112.137 24.8036C112.137 26.3655 111.776 27.5868 111.057 28.4677V28.4655Z"></path><path d="M95.3628 14.7959C96.0924 14.7959 96.691 14.5505 97.1566 14.0587C97.6212 13.568 97.854 12.9433 97.854 12.1845C97.854 11.4258 97.633 10.7913 97.1899 10.3438C96.7468 9.89854 96.1385 9.6748 95.3628 9.6748C94.5872 9.6748 93.9553 9.90935 93.4693 10.3774C92.9822 10.8454 92.7397 11.4485 92.7397 12.1845C92.7397 12.9206 92.9929 13.5399 93.5036 14.0414C94.0121 14.5429 94.6322 14.7948 95.3639 14.7948"></path><path d="M52.5817 14.7959C53.3134 14.7959 53.9099 14.5505 54.3766 14.0587C54.8411 13.568 55.0728 12.9433 55.0728 12.1845C55.0728 11.4258 54.8518 10.7913 54.4087 10.3438C53.9657 9.89854 53.3574 9.6748 52.5817 9.6748C51.806 9.6748 51.1763 9.90935 50.6892 10.3774C50.2011 10.8454 49.9575 11.4485 49.9575 12.1845C49.9575 12.9206 50.2129 13.5399 50.7225 14.0414C51.231 14.5429 51.8511 14.7948 52.5817 14.7948"></path><path d="M97.5558 16.5371H93.0713V33.0676H97.5558V16.5371Z"></path><path d="M39.6944 33.0679H44.1789V20.2847H50.2898V33.0679H54.7743V16.5364H44.1789V15.8349C44.1789 15.2318 44.3119 14.7919 44.578 14.513C44.843 14.2342 45.2861 14.0936 45.9062 14.0936C46.6583 14.0936 47.3223 14.1931 47.8995 14.3941L48.2321 10.5463C47.3009 10.301 46.2495 10.1777 45.0769 10.1777C43.5041 10.1777 42.2135 10.636 41.2071 11.5504C40.1987 12.4659 39.6955 13.6473 39.6955 15.0978V16.5364H37.0381V20.2847H39.6955V33.0679H39.6944Z"></path><path d="M85.9295 10.5127V18.6785H85.8287C85.2536 17.83 84.5724 17.2053 83.7871 16.8043C83.0007 16.4022 82.0641 16.2012 80.9794 16.2012C78.9206 16.2012 77.2266 16.8259 75.8985 18.0754C74.5703 19.3259 73.7732 21.0434 73.506 23.2289H73.4073C73.3183 20.9321 72.7261 19.1865 71.6307 17.9932C70.5342 16.8 68.9668 16.2023 66.9306 16.2023C65.8234 16.2023 64.8267 16.4152 63.9416 16.8389C63.0555 17.2626 62.3367 17.8754 61.7831 18.6796H61.6844L61.3185 16.5373H57.4316V33.0689H61.9161V24.3681C61.9161 22.9846 62.2487 21.88 62.9128 21.0542C63.5769 20.2295 64.463 19.8166 65.5702 19.8166C67.806 19.8166 68.925 21.2552 68.925 24.1335V33.0689H73.4095V26.4087H73.5082C73.7742 28.5737 74.5767 30.2803 75.9167 31.5298C77.2556 32.7792 78.9443 33.404 80.9816 33.404C81.9997 33.404 82.9084 33.1964 83.7055 32.7836C84.5026 32.3707 85.2332 31.7308 85.8984 30.8596H85.9971L86.4295 33.0689H90.4151V10.5127H85.9306H85.9295ZM84.8502 28.4656C84.1304 29.3475 83.1294 29.7874 81.8441 29.7874C80.6265 29.7874 79.6631 29.3411 78.955 28.4494C78.2458 27.5566 77.8918 26.3417 77.8918 24.8026C77.8918 23.2635 78.2458 22.0475 78.955 21.1558C79.6631 20.263 80.6265 19.8177 81.8441 19.8177C83.1294 19.8177 84.1304 20.2587 84.8502 21.1396C85.5701 22.0216 85.9306 23.2418 85.9306 24.8037C85.9306 26.3655 85.5701 27.5868 84.8502 28.4677V28.4656Z"></path></g><path fill="currentColor" d="M26.8607 13.9959C26.0765 13.9397 25.0766 13.7214 23.86 13.3409C22.6423 12.9594 21.6145 12.5584 20.7756 12.1358L19.6834 14.1224C20.2767 14.4131 20.9708 14.6941 21.7658 14.9665C19.073 16.1608 16.4617 17.647 13.933 19.4282C13.5714 19.6822 13.2195 19.9406 12.873 20.2C12.8537 19.8119 12.8333 19.4109 12.8119 19.0002C14.0263 18.0242 15.1421 16.9066 16.1581 15.6442C17.4723 14.0099 18.5011 12.2979 19.2425 10.508C19.9827 8.71812 20.355 7.03307 20.355 5.45504C20.355 3.76351 19.9355 2.43191 19.0955 1.45914C18.2565 0.486381 17.1236 0 15.6957 0C13.7088 0 12.1832 0.908993 11.1211 2.72806C10.0579 4.54604 9.49786 7.11846 9.44208 10.4453C9.41418 11.7693 9.4689 13.6446 9.60944 16.0679C9.64591 16.5802 9.68883 17.2309 9.73603 18.0166C9.25111 18.3214 8.80373 18.5668 8.39284 18.7527C7.55387 19.1342 6.68595 19.3245 5.7912 19.3245C4.89645 19.3245 4.13258 19.0067 3.58758 18.3722C3.0415 17.7378 2.71322 16.8861 2.60164 15.815L0 17.1249C0.111575 18.5917 0.707002 19.7892 1.78306 20.7188C2.86019 21.6505 4.16906 22.1141 5.70751 22.1141C6.6323 22.1141 7.58177 21.9315 8.56127 21.564C8.98934 21.404 9.43135 21.2019 9.88623 20.9609C9.90983 21.5359 9.93236 22.0828 9.95167 22.6038C8.3982 24.0154 7.03998 25.4939 5.87595 27.0396C3.80429 29.7882 2.769 32.4308 2.769 34.9687C2.769 36.5186 3.17454 37.7443 3.98668 38.6468C4.79775 39.5482 5.87488 40 7.21808 40C8.89707 40 10.2392 39.3861 11.2477 38.1604C12.254 36.9347 12.8419 35.1373 13.0103 32.7691C13.1208 31.3597 13.1713 29.7536 13.1573 27.9496C13.1487 26.8764 13.1037 25.3588 13.0211 23.3982C13.8171 22.741 14.6668 22.1012 15.5701 21.4797C17.9046 19.8735 20.3389 18.4868 22.873 17.3152C22.549 18.0534 22.2818 18.7516 22.0759 19.4077L24.3009 20.0422C24.553 19.1969 24.9371 18.209 25.4553 17.0828C25.9724 15.9555 26.497 15.067 27.0281 14.4185L26.8607 13.9959ZM12.5479 10.4864C12.5758 8.03394 12.8634 6.13921 13.4094 4.80004C13.9544 3.46195 14.7033 2.79075 15.6549 2.79075C16.1849 2.79075 16.5926 3.01665 16.8715 3.46736C17.1504 3.91915 17.291 4.60873 17.291 5.53826C17.291 6.83528 17.0324 8.20255 16.5142 9.639C15.995 11.0776 15.2901 12.4297 14.3954 13.6987C13.8557 14.4617 13.2753 15.147 12.6552 15.7577L12.6316 15.2626C12.5479 13.0361 12.5201 11.4429 12.5479 10.4842V10.4864ZM9.94631 32.7281C9.80577 34.1083 9.50645 35.201 9.04405 36.0041C8.58273 36.8083 8.00125 37.2093 7.30176 37.2093C6.85331 37.2093 6.49713 37.0266 6.23213 36.6602C5.96607 36.2927 5.83304 35.7285 5.83304 34.9687C5.83304 32.7129 6.72886 30.4021 8.51943 28.0339C8.99685 27.4027 9.5161 26.7845 10.0729 26.1781C10.0911 26.8439 10.1051 27.4276 10.1126 27.9291C10.1405 29.719 10.0847 31.3186 9.94524 32.7281H9.94631Z"></path></svg></a></div>
         <div>
           <p class="co"><a href="https://www.findigs.com" target="_blank" rel="noopener">Findigs</a></p>
           <p class="desc">Autonomous tenant underwriting for property managers.</p>
         </div>
-        <p class="round">$27M Series B<span>2024</span></p>
+        <p class="meta">$27M Series B<span>2024</span></p>
         <div class="press">
           <a href="https://www.axios.com/pro/fintech-deals/2024/06/13/renter-screening-platform-findigs-27-million" target="_blank" rel="noopener">Axios</a>
           <a href="https://finance.yahoo.com/news/findigs-announces-27m-series-b-153000246.html" target="_blank" rel="noopener">Yahoo Finance</a>
@@ -212,22 +222,43 @@
         </div>
       </li>
 
-      <li class="deal">
+      <li class="item">
         <div class="logo"><span class="stealth">Stealth</span></div>
         <div>
           <p class="co">AI × Consumer Legal</p>
           <p class="desc">Stealth. Unannounced.</p>
         </div>
-        <p class="round">Undisclosed<span>2026</span></p>
+        <p class="meta">Undisclosed<span>2026</span></p>
       </li>
 
-      <li class="deal">
+      <li class="item">
         <div class="logo"><span class="stealth">Stealth</span></div>
         <div>
           <p class="co">AI × Life Insurance</p>
           <p class="desc">Stealth. Unannounced.</p>
         </div>
-        <p class="round">Undisclosed<span>2026</span></p>
+        <p class="meta">Undisclosed<span>2026</span></p>
+      </li>
+
+    </ul>
+  </section>
+
+  <section class="row" aria-labelledby="oss-h">
+    <div class="label">
+      <h2 id="oss-h">Open source</h2>
+      <p>Things I build on the side</p>
+    </div>
+    <ul class="list">
+
+      <li class="item proj">
+        <div>
+          <p class="co"><a href="https://github.com/Agastyag/open-favicon-utility" target="_blank" rel="noopener">open-favicon-utility</a></p>
+          <p class="desc">A self-hosted favicon service. Drop-in replacement for Google's <code>/s2/favicons</code> endpoint: no third-party calls, no API keys, no rate limits. Prefers SVG and high-res touch icons over 16px ICOs.</p>
+        </div>
+        <p class="meta">TypeScript<span>MIT</span></p>
+        <div class="press">
+          <a href="https://github.com/Agastyag/open-favicon-utility" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </li>
 
     </ul>
