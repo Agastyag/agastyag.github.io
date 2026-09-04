@@ -153,8 +153,8 @@
     .name { margin-top: 14px; }
     .headline { margin-top: 34px; max-width: none; }
     .label { border-top: 0; padding-top: 0; padding-bottom: 14px; }
-    .label p { display: inline; margin-left: 10px; }
-    .item { grid-template-columns: 1fr; gap: 6px 0; padding: 22px 0; }
+    .label p { margin-top: 2px; }
+    .item, .item.proj { grid-template-columns: 1fr; gap: 6px 0; padding: 22px 0; }
     .logo { margin-bottom: 6px; }
     .meta { text-align: left; margin-top: 2px; }
     .meta span { display: inline; }
@@ -278,6 +278,17 @@
       <p>Things I build for fun</p>
     </div>
     <ul class="list">
+
+      <li class="item proj">
+        <div>
+          <p class="co"><a href="https://public-comps.vercel.app/" target="_blank" rel="noopener">Public Comps</a></p>
+          <p class="desc">Side-by-side comps for public companies: market cap, enterprise value, growth, margins, and EV multiples from live Yahoo Finance data, with mean and median summaries and CSV export.</p>
+        </div>
+        <p class="meta">Python<span>Flask</span></p>
+        <div class="press">
+          <a href="https://public-comps.vercel.app/" target="_blank" rel="noopener">Live site</a>
+        </div>
+      </li>
 
       <li class="item proj">
         <div>
